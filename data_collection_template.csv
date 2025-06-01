@@ -1,0 +1,11 @@
+node_id,image_filename,location_name,gps_latitude,gps_longitude,gps_altitude,camera_direction,camera_yaw_degrees,connected_nodes,shooting_time,weather_conditions,notes
+1,IMG_001.jpg,,,,0,north,0,,,sunny,
+2,IMG_002.jpg,,,,0,north,0,,,sunny,
+3,IMG_003.jpg,,,,0,north,0,,,sunny,
+4,IMG_004.jpg,,,,0,north,0,,,sunny,
+5,IMG_005.jpg,,,,0,north,0,,,sunny,
+6,IMG_006.jpg,,,,0,north,0,,,sunny,
+7,IMG_007.jpg,,,,0,north,0,,,sunny,
+8,IMG_008.jpg,,,,0,north,0,,,sunny,
+9,IMG_009.jpg,,,,0,north,0,,,sunny,
+10,IMG_010.jpg,,,,0,north,0,,,sunny, 

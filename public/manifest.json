@@ -1,0 +1,58 @@
+{
+  "short_name": "SQU Tour",
+  "name": "SQU Virtual Tour - 360° Campus Experience",
+  "description": "Immersive 360° virtual reality tour of the SQU campus with mobile-optimized touch controls",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "id": "/",
+  "start_url": "/",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "display": "fullscreen",
+  "orientation": "any",
+  "scope": "/",
+  "categories": ["education", "travel", "virtual-reality"],
+  "lang": "en",
+  "dir": "ltr",
+  "screenshots": [
+    {
+      "src": "screenshot-wide.jpg",
+      "type": "image/jpeg",
+      "sizes": "1280x720",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshot-narrow.jpg", 
+      "type": "image/jpeg",
+      "sizes": "720x1280",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start Tour",
+      "short_name": "Tour",
+      "description": "Begin the virtual campus tour",
+      "url": "/",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+} 

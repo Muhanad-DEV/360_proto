@@ -3,16 +3,172 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Enhanced Mobile Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Theme and Colors -->
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="SQU Virtual Tour - 360° panoramic virtual tour"
-    />
-    <title>SQU Virtual Tour</title>
+    <meta name="msapplication-navbutton-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- PWA Configuration -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="SQU Virtual Tour">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="SQU Virtual Tour">
+    
+    <!-- Enhanced Description and SEO -->
+    <meta name="description" content="SQU Virtual Tour - Experience our campus in immersive 360° panoramic virtual reality. Navigate through buildings and explore locations with touch controls on mobile devices." />
+    <meta name="keywords" content="SQU, virtual tour, 360 degree, panoramic, virtual reality, campus tour, mobile, touch controls" />
+    <meta name="author" content="SQU Virtual Tour Team" />
+    
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="SQU Virtual Tour - 360° Campus Experience" />
+    <meta property="og:description" content="Explore our campus in immersive 360° virtual reality with mobile-optimized touch controls" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="%PUBLIC_URL%/images/tour-preview.jpg" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SQU Virtual Tour" />
+    <meta name="twitter:description" content="360° Campus Virtual Reality Experience" />
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="%PUBLIC_URL%/images/IMG_20250526_162018_00_003.jpg" as="image" type="image/jpeg">
+    
+    <!-- Prevent FOUC (Flash of Unstyled Content) -->
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #000;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      }
+      
+      #root {
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+      }
+      
+      /* Initial loading state */
+      .initial-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        z-index: 9999;
+      }
+      
+      .initial-loader .spinner {
+        width: 50px;
+        height: 50px;
+        border: 3px solid #333;
+        border-top: 3px solid #fff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Hide loader when React loads */
+      .loaded .initial-loader {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+      }
+    </style>
+    
+    <title>SQU Virtual Tour - 360° Campus Experience</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- Fallback for users without JavaScript -->
+    <noscript>
+      <div style="
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        background: #000; 
+        color: #fff; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        text-align: center; 
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      ">
+        <h1>JavaScript Required</h1>
+        <p>This Virtual Tour requires JavaScript to run.</p>
+        <p>Please enable JavaScript in your browser settings and refresh the page.</p>
+      </div>
+    </noscript>
+    
+    <!-- Initial Loading Screen -->
+    <div class="initial-loader">
+      <div class="spinner"></div>
+      <p style="margin-top: 20px; font-size: 16px;">Loading Virtual Tour...</p>
+    </div>
+    
+    <!-- React Root -->
     <div id="root"></div>
+    
+    <!-- Remove initial loader when React loads -->
+    <script>
+      // Hide initial loader when DOM is ready
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+          document.body.classList.add('loaded');
+        }, 100);
+      });
+      
+      // Service Worker Registration for PWA (optional)
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js')
+            .then(function(registration) {
+              console.log('SW registered: ', registration);
+            })
+            .catch(function(registrationError) {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+      
+      // Prevent zoom on double tap (iOS Safari)
+      let lastTouchEnd = 0;
+      document.addEventListener('touchend', function (event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+          event.preventDefault();
+        }
+        lastTouchEnd = now;
+      }, false);
+      
+      // Prevent horizontal scrolling on mobile
+      document.addEventListener('touchmove', function(e) {
+        if (e.touches.length > 1) {
+          return; // Allow pinch zoom
+        }
+        e.preventDefault();
+      }, { passive: false });
+    </script>
   </body>
 </html> 
