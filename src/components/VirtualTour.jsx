@@ -19,7 +19,6 @@ export default function VirtualTour() {
   // Function to calculate bearing between two GPS points
   const calculateBearing = (lat1, lon1, lat2, lon2) => {
     const toRadians = (degrees) => degrees * (Math.PI / 180);
-    const toDegrees = (radians) => radians * (180 / Math.PI);
     
     const dLon = toRadians(lon2 - lon1);
     const lat1Rad = toRadians(lat1);

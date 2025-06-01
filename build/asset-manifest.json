@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/360_proto/static/css/main.cb03169e.css",
+    "main.js": "/360_proto/static/js/main.11e0a40c.js",
+    "index.html": "/360_proto/index.html",
+    "main.cb03169e.css.map": "/360_proto/static/css/main.cb03169e.css.map",
+    "main.11e0a40c.js.map": "/360_proto/static/js/main.11e0a40c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cb03169e.css",
+    "static/js/main.11e0a40c.js"
+  ]
+}
