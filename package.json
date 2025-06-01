@@ -2,7 +2,7 @@
   "name": "squ-virtual-tour",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://muhanad-dev.github.io/360_proto.html",
+  "homepage": "https://muhanad-dev.github.io/360_proto",
   "dependencies": {
     "@photo-sphere-viewer/core": "^5.7.4",
     "@photo-sphere-viewer/gallery-plugin": "^5.7.4",
