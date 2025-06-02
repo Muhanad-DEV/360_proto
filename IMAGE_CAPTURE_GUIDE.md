@@ -23,14 +23,14 @@ When shooting 360-degree panoramic images for the virtual tour, follow this exac
 
 Copy this table and fill it out for each panoramic image you capture:
 
-```
+
 | node_id | image_filename | location_name | gps_latitude | gps_longitude | gps_altitude | camera_direction | camera_yaw_degrees | connected_nodes | shooting_time | weather_conditions | notes |
 |---------|----------------|---------------|--------------|---------------|--------------|------------------|-------------------|-----------------|---------------|-------------------|-------|
 | 1 | IMG_001.jpg | | | | 0 | north | 0 | | | | |
 | 2 | IMG_002.jpg | | | | 0 | north | 0 | | | | |
 | 3 | IMG_003.jpg | | | | 0 | north | 0 | | | | |
 | 4 | IMG_004.jpg | | | | 0 | north | 0 | | | | |
-```
+
 
 ## Important Shooting Guidelines
 
